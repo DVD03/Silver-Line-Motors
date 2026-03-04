@@ -61,10 +61,13 @@ router.patch('/:id/approve', isAdmin, async (req, res) => {
     const pending = await PendingVehicle.findById(req.params.id).populate('submittedBy', 'username');
     if (!pending || pending.status !== 'Pending') return res.status(400).json({ error: 'Invalid pending vehicle' });
 
+    const pendingData = pending.toObject();
+    delete pendingData.status;
+    delete pendingData._id;
+
     const vehicle = new Vehicle({
-      ...pending.toObject(),
+      ...pendingData,
       submittedBy: pending.submittedBy._id,
-      _id: undefined, // New ID
     });
     await vehicle.save();
 

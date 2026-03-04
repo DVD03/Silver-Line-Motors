@@ -37,8 +37,19 @@ router.get('/', async (req, res) => {  // Public endpoint for browsing
     }
     if (category) filter.category = category;
     if (purpose) filter.purpose = purpose;
-    const vehicles = await Vehicle.find(filter).populate('submittedBy', 'username');
-    res.json(vehicles);
+    const vehicles = await Vehicle.find(filter).populate('submittedBy', 'username').lean();
+
+    // Attach active auction IDs if purpose is auction
+    const Auction = require('../models/Auction');
+    const enriched = await Promise.all(vehicles.map(async v => {
+      if (v.purpose === 'auction') {
+        const active = await Auction.findOne({ vehicle: v._id, status: 'Active' }).select('_id');
+        return { ...v, activeAuctionId: active?._id };
+      }
+      return v;
+    }));
+
+    res.json(enriched);
   } catch (err) {
     console.error('Error fetching vehicles:', err);
     res.status(500).json({ error: 'Failed to fetch vehicles' });

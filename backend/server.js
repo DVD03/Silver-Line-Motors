@@ -26,7 +26,7 @@ if (!MONGODB_URI) {
   throw new Error('MONGODB_URI not set');
 }
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB error:', err));
 

@@ -78,6 +78,16 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/vehicle/:vehicleId', async (req, res) => {
+  try {
+    const auction = await Auction.findOne({ vehicle: req.params.vehicleId, status: 'Active' }).populate('vehicle bids.user');
+    if (!auction) return res.status(404).json({ error: 'No active auction found for this vehicle' });
+    res.json(auction);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 router.get('/:id', async (req, res) => {
   try {
     const auction = await Auction.findById(req.params.id).populate('vehicle bids.user');
