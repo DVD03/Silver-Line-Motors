@@ -1,0 +1,10 @@
+/* App.css – kept minimal, layout handled by theme.css */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}

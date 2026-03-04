@@ -1,0 +1,33 @@
+
+E:\Silver Line\frontend\src\App.test.js
+  1:18  warning  'screen' is defined but never used  no-unused-vars
+
+E:\Silver Line\frontend\src\pages\AdminDashboard.js
+  24:6  warning  React Hook useEffect has missing dependencies: 'fetchAuctions', 'fetchPendings', 'fetchRentals', 'fetchUsers', and 'fetchVehicles'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\Silver Line\frontend\src\pages\Auctions.js
+  34:6  warning  React Hook useEffect has a missing dependency: 'fetchAuction'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\Silver Line\frontend\src\pages\AuctionsList.js
+  13:6  warning  React Hook useEffect has a missing dependency: 'fetchAuctions'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\Silver Line\frontend\src\pages\Favorites.js
+  7:21  warning  'setFavorites' is assigned a value but never used  no-unused-vars
+
+E:\Silver Line\frontend\src\pages\Home.js
+  14:6  warning  React Hook useEffect has a missing dependency: 'fetchVehicles'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\Silver Line\frontend\src\pages\MyRentals.js
+  12:6  warning  React Hook useEffect has a missing dependency: 'fetchRentals'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\Silver Line\frontend\src\pages\Rentals.js
+  15:6  warning  React Hook useEffect has a missing dependency: 'fetchVehicle'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\Silver Line\frontend\src\pages\RentalsList.js
+  11:6  warning  React Hook useEffect has a missing dependency: 'fetchVehicles'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\Silver Line\frontend\src\pages\VehicleDetails.js
+  14:6  warning  React Hook useEffect has a missing dependency: 'fetchVehicle'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+✖ 10 problems (0 errors, 10 warnings)
+
